@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="160.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jp.kotmw.ic.SettingController">
+   <children>
+      <TextField fx:id="cKey" layoutX="14.0" layoutY="10.0" prefHeight="25.0" prefWidth="471.0" promptText="consumerKey" />
+      <TextField fx:id="cSecret" layoutX="14.0" layoutY="40.0" prefHeight="25.0" prefWidth="471.0" promptText="consumerSecret" />
+      <TextField fx:id="aToken" layoutX="14.0" layoutY="70.0" prefHeight="25.0" prefWidth="471.0" promptText="accessToken" />
+      <TextField fx:id="aTokenSecret" layoutX="14.0" layoutY="100.0" prefHeight="25.0" prefWidth="471.0" promptText="accessTokenSecret" />
+      <Button layoutX="444.0" layoutY="130.0" mnemonicParsing="false" onAction="#onButton" text="Save" />
+   </children>
+</AnchorPane>

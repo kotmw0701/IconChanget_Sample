@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jp.kotmw.ic.Controller">
+   <children>
+      <ImageView fx:id="canbas" fitHeight="400.0" fitWidth="400.0" layoutX="200.0" pickOnBounds="true" preserveRatio="true" />
+      <Button layoutX="14.0" layoutY="300.0" mnemonicParsing="false" onAction="#onSettings" prefHeight="25.0" prefWidth="80.0" text="Settings" />
+      <Button layoutX="14.0" layoutY="332.0" mnemonicParsing="false" onAction="#onGenerate" prefHeight="25.0" prefWidth="80.0" text="Generate" />
+      <Button layoutX="14.0" layoutY="365.0" mnemonicParsing="false" onAction="#onDownload" prefHeight="25.0" prefWidth="80.0" text="Output" />
+      <TextField fx:id="red" layoutX="14.0" layoutY="14.0" prefHeight="25.0" prefWidth="80.0" promptText="Red" />
+      <TextField fx:id="blue" layoutX="14.0" layoutY="49.0" prefHeight="25.0" prefWidth="80.0" promptText="Blue" />
+      <TextField fx:id="yellow" layoutX="14.0" layoutY="84.0" prefHeight="25.0" prefWidth="80.0" promptText="Yellow" />
+   </children>
+</AnchorPane>
