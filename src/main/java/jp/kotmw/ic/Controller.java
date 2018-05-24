@@ -1,7 +1,6 @@
 package jp.kotmw.ic;
 
 import javafx.embed.swing.SwingFXUtils;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -10,7 +9,6 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.image.WritableImage;
 import javafx.stage.Stage;
 
 import javax.imageio.ImageIO;
@@ -30,18 +28,38 @@ public class Controller implements Initializable {
 
     private String path = "";
 
+    /**
+     * このコントローラーを初期化する処理
+     *
+     * @param location ろけーしょん
+     * @param resources りそーるばんぶ・・・？
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         canbas.setImage(imagedraw(0, 0, 0));
     }
 
-    public void onGenerate(ActionEvent actionEvent) {
+    /**
+     * Generateボタンが押された時のイベント
+     * 入力された数値を読み込んで画像として生成処理をして表示してるよ
+     *
+     * 【注意】FXMLのonActionに記述してないと呼び出されないよ！
+     *
+     */
+    @FXML
+    public void onGenerate() {
         int red = Integer.parseInt(this.red.getText()),
                 blue = Integer.parseInt(this.blue.getText()),
                 yellow = Integer.parseInt(this.yellow.getText());
         canbas.setImage(imagedraw(red, blue, yellow));
     }
 
+    /**
+     * Settingsボタンが押された時のイベント
+     * Twitterのトークンとか書くアレを表示する(Oauth2使えよって話は突っ込まないで)
+     *
+     * 【注意】FXMLのonActionに記述してないと呼び出されないよ！
+     */
     @FXML
     public void onSettings() {
         Stage stage = new Stage();
@@ -57,6 +75,13 @@ public class Controller implements Initializable {
         stage.show();
     }
 
+    /**
+     * OutPutボタンが押された時のイベント
+     * 表示されてる画像をJarが置いてる同じ階層にpngファイルとして生成するよ！
+     *
+     * 【注意】FXMLのonActionに記述してないと呼び出されないよ！
+     * @throws IOException
+     */
     @FXML
     public void onDownload() throws IOException {
         int red = Integer.parseInt(this.red.getText()),
@@ -71,6 +96,16 @@ public class Controller implements Initializable {
         ImageIO.write(SwingFXUtils.fromFXImage(canbas.getImage(), null), "png", new File(red+""+blue+""+yellow+".png"));
     }
 
+    /**
+     * 画像を生成します
+     * Graphics2Dを使用して2つの画像を重ねる処理をしています
+     * あと入力された数値を重ねた画像の上に描画処理をしています
+     *
+     * @param red 赤の値
+     * @param blue 青の値
+     * @param yellow 黄色の値
+     * @return 画像処理をしたデータが格納されたImageクラスを返します
+     */
     private Image imagedraw(int red, int blue, int yellow) {
         BufferedImage base = null , paste;
         try {
